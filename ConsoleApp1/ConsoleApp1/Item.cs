@@ -13,11 +13,10 @@ namespace ConsoleApp1
     }
     abstract class Item
     {
-        string nombre;
-        float precio;
-        ItemTipos tipos;
+        protected string nombre;
+        protected float precio;
+        protected ItemTipos tipos;
 
-        public abstract void Usar();
-        public abstract void Curar();
+        public abstract float Usar();
     }
 }
