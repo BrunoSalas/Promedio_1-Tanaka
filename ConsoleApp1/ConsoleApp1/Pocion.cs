@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    class Pocion: Item
+    class Pocion: Item , MostrarDatos
     {
         int capacidad;
 
@@ -18,6 +18,11 @@ namespace ConsoleApp1
             this.tipos = ItemTipos.Pocion;
 
 
+        }
+
+        public string Mostrar()
+        {
+            return $"{nombre},{precio} ,{capacidad}"; 
         }
 
         public override float Usar()
