@@ -12,6 +12,7 @@ namespace ConsoleApp1
         {
             List<Item> itemsJugador = new List<Item>();
             List<Item> items = new List<Item>();
+            List<NPC> aldeanos = new List<NPC>();
             Arma espada = new Arma("espada", 100.5f, 1);
             Pocion heal = new Pocion("afrodita", 1f, 100);
             items.Add(espada);
@@ -58,7 +59,8 @@ namespace ConsoleApp1
                             listaDialogos.Add(dialogos);
                         }
                         Conversador aldeano = new Conversador(nombreAldeano, Int32.Parse(vida), listaDialogos);
-                        Console.WriteLine($"Aldeano {nombreAldeano} creado {vida} {listaDialogos[0]}");
+                        Console.WriteLine($"Aldeano {nombreAldeano} creado {vida}");
+                        aldeanos.Add(aldeano);
                         break;
 
                     case "3":
