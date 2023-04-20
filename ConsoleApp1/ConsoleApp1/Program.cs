@@ -85,6 +85,18 @@ namespace ConsoleApp1
                                 break;
 
                             case "2":
+                                Console.WriteLine("Escribir el nombre del Enemigo:");
+                                string nombreEnemigo = Console.ReadLine();
+                                Console.WriteLine("Escribir la cantidad de vida del Enemigo:");
+                                string vidaEnemigo = Console.ReadLine();
+                                Console.WriteLine("Escribir el daño del Enemigo:");
+                                string dañoEnemigo = Console.ReadLine();
+                                Console.WriteLine("Escribir el nivel del Enemigo:");
+                                string nivelEnemigo = Console.ReadLine();
+                                Console.WriteLine("Escribir la experiencia del Enemigo:");
+                                string experienciaEnemigo = Console.ReadLine();
+                                Enemigo ladron = new Enemigo(nombreEnemigo, Int32.Parse(vidaEnemigo), float.Parse(dañoEnemigo), Int32.Parse(nivelEnemigo), Int32.Parse(experienciaEnemigo));
+                                aldeanos.Add(ladron);
                                 break;
 
                             case "3":
