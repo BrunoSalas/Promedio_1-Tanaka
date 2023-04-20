@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Arma.cs" />
     <Compile Include="Conversador.cs" />
+    <Compile Include="Enemigo.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Jugador.cs" />
     <Compile Include="MostrarDatos.cs" />
