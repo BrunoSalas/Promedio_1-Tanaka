@@ -14,9 +14,9 @@ namespace ConsoleApp1
     }
     abstract class NPC
     {
-        string nombre;
-        int vida;
-        public Tipos tipo;
+        protected string nombre;
+        protected int vida;
+        protected Tipos tipo;
 
         public abstract void Morir();
     }
