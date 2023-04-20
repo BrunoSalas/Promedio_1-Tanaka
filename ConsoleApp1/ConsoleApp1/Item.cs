@@ -15,8 +15,10 @@ namespace ConsoleApp1
     {
         protected string nombre;
         protected float precio;
-        protected ItemTipos tipos;
+        public ItemTipos tipos;
 
         public abstract float Usar();
+    
     }
+    
 }

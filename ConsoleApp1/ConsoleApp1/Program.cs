@@ -11,7 +11,11 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             List<Item> itemsJugador = new List<Item>();
-
+            List<Item> items = new List<Item>();
+            Arma espada = new Arma("espada", 100.5f, 1);
+            Pocion heal = new Pocion("afrodita", 1f, 100);
+            items.Add(espada);
+            items.Add(heal);
             while (true)
             {
                 Console.WriteLine("1.Crear Jugador");
@@ -58,6 +62,21 @@ namespace ConsoleApp1
                         break;
 
                     case "3":
+                        for (int i = 0; i < items.Count; i++)
+                        {
+                            if (items[i].tipos== ItemTipos.Arma)
+                            {
+                                Arma arma = items[i] as Arma;
+                                Console.WriteLine((i+1) + ". " + arma.Mostrar());
+                            }
+                            else
+                            {
+                                Pocion pocion = items[i] as Pocion;
+                                Console.WriteLine((i+1) + ". " + pocion.Mostrar());
+                            }
+                        }
+                        string index = Console.ReadLine();
+                        itemsJugador.Add(items[Int32.Parse (index)-1]);
                         break;
 
                     case "4":
