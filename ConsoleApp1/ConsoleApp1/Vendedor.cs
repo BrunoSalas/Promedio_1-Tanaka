@@ -21,11 +21,11 @@ namespace ConsoleApp1
             return $"{nombre},{vida},{dinero},{items}";
         }
 
-        public Vendedor(string nombre, int vida, List <Item> items) {
+        public Vendedor(string nombre, int vida, float dinero) {
         
             this.nombre= nombre;
             this.vida= vida;
-            this.items = items;
+            this.dinero= dinero;
             tipo = Tipos.Vendedores;
         }
     }

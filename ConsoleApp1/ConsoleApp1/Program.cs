@@ -13,6 +13,7 @@ namespace ConsoleApp1
             List<Item> itemsJugador = new List<Item>();
             List<Item> items = new List<Item>();
             List<NPC> aldeanos = new List<NPC>();
+            List<Jugador> jugadores = new List<Jugador>();
             Arma espada = new Arma("espada", 100.5f, 1);
             Pocion heal = new Pocion("afrodita", 1f, 100);
             items.Add(espada);
@@ -20,7 +21,7 @@ namespace ConsoleApp1
             while (true)
             {
                 Console.WriteLine("1.Crear Jugador");
-                Console.WriteLine("2.Crear Aldeano");
+                Console.WriteLine("2.Crear NPC");
                 Console.WriteLine("3.Crear un Item");
                 Console.WriteLine("4.Datos del jugador");
                 Console.WriteLine("5.Datos de los NPCS");
@@ -42,25 +43,61 @@ namespace ConsoleApp1
                         Console.WriteLine("Escribe el nivel:");
                         string nivel = Console.ReadLine();
                         Jugador jugador = new Jugador(nombre, Int32.Parse(experiencia), float.Parse(dinero), Int32.Parse(nivel), itemsJugador);
+                        if (jugadores.Count != 1)
+                        {
+                           jugadores.Add(jugador);
+
+                        }
+                        else
+                        {
+                            jugadores[0]=jugador;
+                        }
                         Console.WriteLine($"Jugador {jugador.ObtenerNombre()} creado");
                         break;
 
                     case "2":
-                        Console.WriteLine("Escribe el nombre del Aldeano:");
-                        string nombreAldeano = Console.ReadLine();
-                        Console.WriteLine("Escribe la Vida:");
-                        string vida = Console.ReadLine();
-                        Console.WriteLine("Escribe cuando dialogos tendra:");
-                        string numeroDialogos = Console.ReadLine();
-                        List<string> listaDialogos = new List<string>();
-                        for (int i = 0; i < Int32.Parse(numeroDialogos); i++)
+                        Console.WriteLine("1. Quieres crear un Aldeano?");
+                        Console.WriteLine("2. Quieres crear un Enemigo?");
+                        Console.WriteLine("3. Quieres crear un Vendedor?");
+                        string NPC = Console.ReadLine();
+                        switch (NPC)
                         {
-                            string dialogos = Console.ReadLine();
-                            listaDialogos.Add(dialogos);
+                            case "1":
+                                Console.WriteLine("Escribe el nombre del Aldeano:");
+                                string nombreAldeano = Console.ReadLine();
+                                Console.WriteLine("Escribe la Vida:");
+                                string vida = Console.ReadLine();
+                                Console.WriteLine("Escribe cuando dialogos tendra:");
+                                string numeroDialogos = Console.ReadLine();
+                                List<string> listaDialogos = new List<string>();
+                                for (int i = 0; i < Int32.Parse(numeroDialogos); i++)
+                                {
+                                    string dialogos = Console.ReadLine();
+                                    listaDialogos.Add(dialogos);
+                                }
+                                Conversador aldeano = new Conversador(nombreAldeano, Int32.Parse(vida), listaDialogos);
+                                Console.WriteLine($"Aldeano {nombreAldeano} creado {vida}");
+                                aldeanos.Add(aldeano);
+                                break;
+
+                            case "2":
+                                break;
+
+                            case "3":
+                                Console.WriteLine("Escribe el nombre del Vendedor");
+                                string nombreVendedor= Console.ReadLine();
+                                Console.WriteLine("Escribe la cantidad de vida");
+                                string vidaVendedor = Console.ReadLine();
+                                Console.WriteLine("Escribe la cantidad de dinero");
+                                string dineroVendedor = Console.ReadLine();
+                                Vendedor buhonero = new Vendedor(nombreVendedor, Int32.Parse(vidaVendedor),float.Parse(dineroVendedor));
+                                break;
+
+                            default:
+                                Console.WriteLine("Intenta otro número");
+                                break;
                         }
-                        Conversador aldeano = new Conversador(nombreAldeano, Int32.Parse(vida), listaDialogos);
-                        Console.WriteLine($"Aldeano {nombreAldeano} creado {vida}");
-                        aldeanos.Add(aldeano);
+                        
                         break;
 
                     case "3":
@@ -82,6 +119,32 @@ namespace ConsoleApp1
                         break;
 
                     case "4":
+                        if (jugadores.Count !=0)
+                        {
+                            for (int i = 0; i < jugadores.Count; i++)
+                            {
+                                Console.WriteLine(jugadores[i].Mostrar());
+                            }
+                            Console.WriteLine("Items:");
+                            for (int i = 0; i < itemsJugador.Count; i++)
+                            {
+                                if (itemsJugador[i].tipos == ItemTipos.Arma)
+                                {
+                                    Arma arma = itemsJugador[i] as Arma;
+                                    Console.WriteLine((i + 1) + ". " + arma.Mostrar());
+                                }
+                                else
+                                {
+                                    Pocion pocion = itemsJugador[i] as Pocion;
+                                    Console.WriteLine((i + 1) + ". " + pocion.Mostrar());
+                                }
+                            }
+                                                        
+                        }  else
+                        {
+                            Console.WriteLine("No hay jugadores suficientes");
+                        }                                   
+                        
                         break;
 
                     case "5":
