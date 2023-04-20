@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    class Jugador
+    class Jugador : MostrarDatos
     {
         string nombre;
         int experiencia;
@@ -24,6 +24,12 @@ namespace ConsoleApp1
         {
             return this.experiencia += experiencia;
         }
+
+        public string Mostrar()
+        {
+            return $"{nombre}, {experiencia}, {dinero}, {nivel}";
+        }
+
         public float RestarDinero (float dinero)
         {
             return this.dinero -= dinero;
