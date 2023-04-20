@@ -18,7 +18,10 @@ namespace ConsoleApp1
             Pocion heal = new Pocion("afrodita", 1f, 100);
             items.Add(espada);
             items.Add(heal);
-            while (true)
+
+            bool salir = false;
+
+            while (!salir)
             {
                 Console.WriteLine("1.Crear Jugador");
                 Console.WriteLine("2.Crear NPC");
@@ -232,6 +235,7 @@ namespace ConsoleApp1
                         break;
 
                     case "10":
+                        salir = true;
                         break;
 
                     default:
@@ -239,7 +243,6 @@ namespace ConsoleApp1
                         break;
                 }
 
-                Console.ReadLine();
             }
 
         }
