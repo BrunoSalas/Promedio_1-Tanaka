@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    class Vendedor : NPC
+    class Vendedor : NPC,MostrarDatos
     {
 
         float dinero;
@@ -16,15 +16,17 @@ namespace ConsoleApp1
             vida = 0;
         }
 
+        public string Mostrar()
+        {
+            return $"{nombre},{vida},{dinero},{items}";
+        }
+
         public Vendedor(string nombre, int vida, List <Item> items) {
         
             this.nombre= nombre;
             this.vida= vida;
             this.items = items;
-            this.tipo = Tipos.Vendedores;
-
-        
+            tipo = Tipos.Vendedores;
         }
-
     }
 }
