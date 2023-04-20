@@ -16,7 +16,7 @@ namespace ConsoleApp1
     {
         protected string nombre;
         protected int vida;
-        protected Tipos tipo;
+        public Tipos tipo;
 
         public abstract void Morir();
     }

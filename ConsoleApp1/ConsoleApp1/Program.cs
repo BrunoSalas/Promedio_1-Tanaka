@@ -229,21 +229,64 @@ namespace ConsoleApp1
                         break;
 
                     case "9":
-                        for (int i = 0; i < items.Count; i++)
+
+                        Console.WriteLine("1.Agregar item jugador");
+                        Console.WriteLine("2.Agregar item a enemigo");
+                        Console.WriteLine("3.Agregar item a vendedor");
+                        string agregarIndice = Console.ReadLine();
+
+                        switch (agregarIndice)
                         {
-                            if (items[i].tipos == ItemTipos.Arma)
-                            {
-                                Arma arma = items[i] as Arma;
-                                Console.WriteLine((i + 1) + ". " + arma.Mostrar());
-                            }
-                            else
-                            {
-                                Pocion pocion = items[i] as Pocion;
-                                Console.WriteLine((i + 1) + ". " + pocion.Mostrar());
-                            }
+                            case "1":
+                                for (int i = 0; i < items.Count; i++)
+                                {
+                                    if (items[i].tipos == ItemTipos.Arma)
+                                    {
+                                        Arma arma = items[i] as Arma;
+                                        Console.WriteLine((i + 1) + ". " + arma.Mostrar());
+                                    }
+                                    else
+                                    {
+                                        Pocion pocion = items[i] as Pocion;
+                                        Console.WriteLine((i + 1) + ". " + pocion.Mostrar());
+                                    }
+                                }
+                                string index = Console.ReadLine();
+                                itemsJugador.Add(items[Int32.Parse(index) - 1]);
+                                break;
+                            case "2":
+                                for (int i = 0; i < items.Count; i++)
+                                {
+                                    if (items[i].tipos == ItemTipos.Arma)
+                                    {
+                                        Arma arma = items[i] as Arma;
+                                        Console.WriteLine((i + 1) + ". " + arma.Mostrar());
+                                    }
+                                    else
+                                    {
+                                        Pocion pocion = items[i] as Pocion;
+                                        Console.WriteLine((i + 1) + ". " + pocion.Mostrar());
+                                    }
+                                }
+
+                                string indexItem = Console.ReadLine();
+                                for (int i = 0; i < aldeanos.Count; i++)
+                                {                                
+                                    if(aldeanos[i].tipo == Tipos.Enemigos)
+                                    {
+                                        Enemigo enemigo = aldeanos[i] as Enemigo;
+                                        Console.WriteLine((i + 1) + ". " + enemigo.Mostrar());
+                                    }
+                                }
+
+                                string enemigoIndice = Console.ReadLine();
+                                Enemigo enemigoSeleccionado = aldeanos[Int32.Parse(enemigoIndice) - 1] as Enemigo;
+                                enemigoSeleccionado.AgregarItem(items[Int32.Parse(indexItem) - 1]);
+
+                                break;
+                            case "3":
+                                break;
                         }
-                        string index = Console.ReadLine();
-                        itemsJugador.Add(items[Int32.Parse(index) - 1]);
                         break;
 
                     case "10":

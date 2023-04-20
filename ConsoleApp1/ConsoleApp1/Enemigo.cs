@@ -13,6 +13,12 @@ namespace ConsoleApp1
         int experiencia;
 
         List<Item> items;
+
+        public void AgregarItem(Item item)
+        {
+            items.Add(item);
+        }
+
         public Enemigo(string nombre, int vida, float daño, int nivel, int experiencia)
         {
             this.nombre = nombre;
