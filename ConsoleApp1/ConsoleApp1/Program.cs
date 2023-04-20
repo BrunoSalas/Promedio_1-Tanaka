@@ -110,6 +110,7 @@ namespace ConsoleApp1
                                 Console.WriteLine("Escribe la cantidad de dinero");
                                 string dineroVendedor = Console.ReadLine();
                                 Vendedor buhonero = new Vendedor(nombreVendedor, Int32.Parse(vidaVendedor),float.Parse(dineroVendedor));
+                                aldeanos.Add(buhonero);
                                 vendedores.Add(buhonero);
                                 break;
 
@@ -181,6 +182,32 @@ namespace ConsoleApp1
                         break;
 
                     case "5":
+                        if(aldeanos.Count != 0)
+                        {
+                            for (int i = 0; i < aldeanos.Count; i++)
+                            {
+                                if (aldeanos[i].tipo == Tipos.Enemigos)
+                                { 
+                                   Enemigo enemigo = aldeanos[i] as Enemigo;
+                                   Console.WriteLine((i + 1) + ". " +  enemigo.Mostrar());
+                                }
+                                else if(aldeanos[i].tipo == Tipos.Conversadores)
+                                {
+                                    Conversador conversador = aldeanos[i] as Conversador;
+                                    Console.WriteLine((i + 1) + ". " +  conversador.Mostrar());
+                                }
+                                else if(aldeanos[i].tipo == Tipos.Vendedores)
+                                {
+                                    Vendedor vendedor = aldeanos[i] as Vendedor;
+                                    Console.WriteLine((i + 1) + ". " +  vendedor.Mostrar());
+                                }
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("No hay NPCs");
+                        }
+
                         break;
 
                     case "6":

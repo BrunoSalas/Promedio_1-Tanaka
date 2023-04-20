@@ -16,7 +16,7 @@ namespace ConsoleApp1
       
         public string Mostrar()
         {
-            return $"{nombre},{vida},{listaTextos}";
+            return $"Conversador - Nombre: {nombre} / Vida: {vida} / {listaTextos}";
         }
 
         public Conversador(string nombre, int vida, List<string> texto) 

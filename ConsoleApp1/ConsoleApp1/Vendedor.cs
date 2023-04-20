@@ -27,7 +27,7 @@ namespace ConsoleApp1
 
         public string Mostrar()
         {
-            return $"{nombre},{vida},{dinero}";
+            return $"Vendedor - Nombre: {nombre} / Vida: {vida} / Dinero: {dinero}";
         }
         
         public void AgregarItem(Item item)

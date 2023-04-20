@@ -37,7 +37,7 @@ namespace ConsoleApp1
 
         public string Mostrar()
         {
-            return $"{nombre}, {vida}, {daño}, {nivel}, {experiencia}";
+            return $"Enemigo - Nombre: {nombre} / Vida: {vida} / Daño: {daño} / Nivel: {nivel} / Experiencia: {experiencia}";
         }
     }
 }
