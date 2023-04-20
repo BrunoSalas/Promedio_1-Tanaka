@@ -154,6 +154,17 @@ namespace ConsoleApp1
                         break;
 
                     case "7":
+                        if(aldeanos.Count != 0)
+                        {
+                            Console.WriteLine("Escoge a que NPC eliminar");
+                            string indiceAldeano = Console.ReadLine();
+                            aldeanos.RemoveAt(Int32.Parse(indiceAldeano) - 1);
+                            Console.WriteLine("Mataron a un inocente");
+                        }
+                        else 
+                        {
+                            Console.WriteLine("No hay NPC");
+                        }
                         break;
 
                     case "8":
