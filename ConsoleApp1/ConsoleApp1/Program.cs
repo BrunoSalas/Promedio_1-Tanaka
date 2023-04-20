@@ -157,6 +157,35 @@ namespace ConsoleApp1
                         break;
 
                     case "8":
+                        if(items.Count != 0)
+                        {
+                            for (int i = 0; i < items.Count; i++)
+                            {
+                                if (items[i].tipos == ItemTipos.Arma)
+                                {
+                                    Arma arma = items[i] as Arma;
+                                    Console.WriteLine((i + 1) + ". " + arma.Mostrar());
+                                }
+                                else
+                                {
+                                    Pocion pocion = items[i] as Pocion;
+                                    Console.WriteLine((i + 1) + ". " + pocion.Mostrar());
+                                }
+                            }
+
+                            Console.WriteLine("Ingrese número de item a eliminar");
+                            string objetosIndice = Console.ReadLine();
+                            items.RemoveAt(Int32.Parse(objetosIndice) - 1);
+                            Console.WriteLine("Item Eliminado");
+
+                        }
+                        else
+                        {
+
+                            Console.WriteLine("No hay items");
+
+                        }
+                        
                         break;
 
                     case "9":
