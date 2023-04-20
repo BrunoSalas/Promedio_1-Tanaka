@@ -28,7 +28,8 @@ namespace ConsoleApp1
                 Console.WriteLine("6.Datos de los Items");
                 Console.WriteLine("7.Eliminar un NPC");
                 Console.WriteLine("8.Eliminar un Item");
-                Console.WriteLine("9.Salir del programa");
+                Console.WriteLine("9.Agregar Item");
+                Console.WriteLine("10.Salir del programa");
                 string selección = Console.ReadLine();
 
                 switch (selección)
@@ -101,21 +102,34 @@ namespace ConsoleApp1
                         break;
 
                     case "3":
-                        for (int i = 0; i < items.Count; i++)
+                        Console.WriteLine("1.Crear Arma");
+                        Console.WriteLine("2.Crear Pocion");
+                        string indice = Console.ReadLine();
+                        switch (indice)
                         {
-                            if (items[i].tipos== ItemTipos.Arma)
-                            {
-                                Arma arma = items[i] as Arma;
-                                Console.WriteLine((i+1) + ". " + arma.Mostrar());
-                            }
-                            else
-                            {
-                                Pocion pocion = items[i] as Pocion;
-                                Console.WriteLine((i+1) + ". " + pocion.Mostrar());
-                            }
+                            case "1":
+                                Console.WriteLine("Escribe Nombre:");
+                                string armaNombre = Console.ReadLine();
+                                Console.WriteLine("Escribe Precio:");
+                                string armaPrecio = Console.ReadLine();
+                                Console.WriteLine("Escribe Daño:");
+                                string armaDaño = Console.ReadLine();
+                                items.Add(new Arma(armaNombre, float.Parse (armaPrecio), Int32.Parse (armaDaño)));
+                                Console.WriteLine("Arma Agregada");
+                                break;
+                            case "2":
+                                Console.WriteLine("Escribe Nombre:");
+                                string pocionNombre = Console.ReadLine();
+                                Console.WriteLine("Escribe Precio:");
+                                string pocionPrecio = Console.ReadLine();
+                                Console.WriteLine("Escribe Capacidad:");
+                                string pocionCapacidad = Console.ReadLine();
+                                items.Add(new Pocion(pocionNombre, float.Parse(pocionPrecio), Int32.Parse(pocionCapacidad)));
+                                Console.WriteLine("Pocion Agregada");
+                                break;
+                            default:
+                                break;
                         }
-                        string index = Console.ReadLine();
-                        itemsJugador.Add(items[Int32.Parse (index)-1]);
                         break;
 
                     case "4":
@@ -200,6 +214,24 @@ namespace ConsoleApp1
                         break;
 
                     case "9":
+                        for (int i = 0; i < items.Count; i++)
+                        {
+                            if (items[i].tipos == ItemTipos.Arma)
+                            {
+                                Arma arma = items[i] as Arma;
+                                Console.WriteLine((i + 1) + ". " + arma.Mostrar());
+                            }
+                            else
+                            {
+                                Pocion pocion = items[i] as Pocion;
+                                Console.WriteLine((i + 1) + ". " + pocion.Mostrar());
+                            }
+                        }
+                        string index = Console.ReadLine();
+                        itemsJugador.Add(items[Int32.Parse(index) - 1]);
+                        break;
+
+                    case "10":
                         break;
 
                     default:
