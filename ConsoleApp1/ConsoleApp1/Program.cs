@@ -15,7 +15,16 @@ namespace ConsoleApp1
             while (true)
             {
                 Console.WriteLine("1.Crear Jugador");
+                Console.WriteLine("2.Crear NPC");
+                Console.WriteLine("3.Crear un Item");
+                Console.WriteLine("4.Datos del jugador");
+                Console.WriteLine("5.Datos de los NPCS");
+                Console.WriteLine("6.Datos de los Items");
+                Console.WriteLine("7.Eliminar un NPC");
+                Console.WriteLine("8.Eliminar un Item");
+                Console.WriteLine("9.Salir del programa");
                 string selección = Console.ReadLine();
+
                 switch (selección)
                 {
                     case "1":
@@ -30,7 +39,33 @@ namespace ConsoleApp1
                         Jugador jugador = new Jugador(nombre, Int32.Parse(experiencia), float.Parse(dinero), Int32.Parse(nivel), itemsJugador);
                         Console.WriteLine($"Jugador {jugador.ObtenerNombre()} creado");
                         break;
+
+                    case "2":
+                        break;
+
+                    case "3":
+                        break;
+
+                    case "4":
+                        break;
+
+                    case "5":
+                        break;
+
+                    case "6":
+                        break;
+
+                    case "7":
+                        break;
+
+                    case "8":
+                        break;
+
+                    case "9":
+                        break;
+
                     default:
+                        Console.WriteLine("Intenta otro número");
                         break;
                 }
 
