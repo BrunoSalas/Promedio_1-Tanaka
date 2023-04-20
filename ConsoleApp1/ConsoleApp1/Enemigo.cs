@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    class Enemigo: NPC
+    class Enemigo: NPC, MostrarDatos
     {
         public float daño;
         int nivel;
@@ -27,6 +27,11 @@ namespace ConsoleApp1
         public override void Morir()
         {
             vida = 0;
+        }
+
+        public string Mostrar()
+        {
+            return $"{nombre}, {vida}, {daño}, {nivel}, {experiencia}";
         }
     }
 }
