@@ -45,9 +45,11 @@
   <ItemGroup>
     <Compile Include="Arma.cs" />
     <Compile Include="Conversador.cs" />
+    <Compile Include="IMostrarDatos.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Jugador.cs" />
     <Compile Include="NPC.cs" />
+    <Compile Include="Pocion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
