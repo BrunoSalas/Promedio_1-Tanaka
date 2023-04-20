@@ -47,6 +47,7 @@
     <Compile Include="Conversador.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Jugador.cs" />
+    <Compile Include="MostrarDatos.cs" />
     <Compile Include="NPC.cs" />
     <Compile Include="Pocion.cs" />
     <Compile Include="Program.cs" />

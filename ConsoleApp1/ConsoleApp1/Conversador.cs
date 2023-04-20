@@ -6,18 +6,24 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    class Conversador : NPC
+    class Conversador : NPC, MostrarDatos
     {
         List<string> listaTextos = new List<string>();
         public override void Morir()
         {
             vida = 0;
         }
+      
+        public string Mostrar()
+        {
+            return $"{nombre},{vida},{listaTextos}";
+        }
+
         public Conversador(string nombre, int vida, List<string> texto) 
         {
             this.nombre = nombre;
             this.vida = vida;
-            this.tipo = Tipos.Conversadores;
+            tipo = Tipos.Conversadores;
             listaTextos = texto;
         }
     }
