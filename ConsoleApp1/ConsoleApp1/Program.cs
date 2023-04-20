@@ -15,7 +15,7 @@ namespace ConsoleApp1
             while (true)
             {
                 Console.WriteLine("1.Crear Jugador");
-                Console.WriteLine("2.Crear NPC");
+                Console.WriteLine("2.Crear Aldeano");
                 Console.WriteLine("3.Crear un Item");
                 Console.WriteLine("4.Datos del jugador");
                 Console.WriteLine("5.Datos de los NPCS");
@@ -41,6 +41,20 @@ namespace ConsoleApp1
                         break;
 
                     case "2":
+                        Console.WriteLine("Escribe el nombre del Aldeano:");
+                        string nombreAldeano = Console.ReadLine();
+                        Console.WriteLine("Escribe la Vida:");
+                        string vida = Console.ReadLine();
+                        Console.WriteLine("Escribe cuando dialogos tendra:");
+                        string numeroDialogos = Console.ReadLine();
+                        List<string> listaDialogos = new List<string>();
+                        for (int i = 0; i < Int32.Parse(numeroDialogos); i++)
+                        {
+                            string dialogos = Console.ReadLine();
+                            listaDialogos.Add(dialogos);
+                        }
+                        Conversador aldeano = new Conversador(nombreAldeano, Int32.Parse(vida), listaDialogos);
+                        Console.WriteLine($"Aldeano {nombreAldeano} creado {vida} {listaDialogos[0]}");
                         break;
 
                     case "3":
