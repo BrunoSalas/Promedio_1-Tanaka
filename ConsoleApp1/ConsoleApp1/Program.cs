@@ -14,6 +14,8 @@ namespace ConsoleApp1
             List<Item> items = new List<Item>();
             List<NPC> aldeanos = new List<NPC>();
             List<Jugador> jugadores = new List<Jugador>();
+            List<Enemigo> enemigos = new List<Enemigo>();
+            List<Vendedor> vendedores = new List<Vendedor>();
             Arma espada = new Arma("espada", 100.5f, 1);
             Pocion heal = new Pocion("afrodita", 1f, 100);
             items.Add(espada);
@@ -97,6 +99,7 @@ namespace ConsoleApp1
                                 string experienciaEnemigo = Console.ReadLine();
                                 Enemigo ladron = new Enemigo(nombreEnemigo, Int32.Parse(vidaEnemigo), float.Parse(dañoEnemigo), Int32.Parse(nivelEnemigo), Int32.Parse(experienciaEnemigo));
                                 aldeanos.Add(ladron);
+                                enemigos.Add(ladron);
                                 break;
 
                             case "3":
@@ -107,6 +110,7 @@ namespace ConsoleApp1
                                 Console.WriteLine("Escribe la cantidad de dinero");
                                 string dineroVendedor = Console.ReadLine();
                                 Vendedor buhonero = new Vendedor(nombreVendedor, Int32.Parse(vidaVendedor),float.Parse(dineroVendedor));
+                                vendedores.Add(buhonero);
                                 break;
 
                             default:
@@ -255,36 +259,74 @@ namespace ConsoleApp1
                                 itemsJugador.Add(items[Int32.Parse(index) - 1]);
                                 break;
                             case "2":
-                                for (int i = 0; i < items.Count; i++)
+                                if (enemigos.Count != 0)
                                 {
-                                    if (items[i].tipos == ItemTipos.Arma)
+
+                                    for (int i = 0; i < items.Count; i++)
                                     {
-                                        Arma arma = items[i] as Arma;
-                                        Console.WriteLine((i + 1) + ". " + arma.Mostrar());
+                                        if (items[i].tipos == ItemTipos.Arma)
+                                        {
+                                            Arma arma = items[i] as Arma;
+                                            Console.WriteLine((i + 1) + ". " + arma.Mostrar());
+                                        }
+                                        else
+                                        {
+                                            Pocion pocion = items[i] as Pocion;
+                                            Console.WriteLine((i + 1) + ". " + pocion.Mostrar());
+                                        }
                                     }
-                                    else
+
+                                    Console.WriteLine("Escribe el número del item a agregar: ");
+                                    string indexItem = Console.ReadLine();
+
+                                    for (int i = 0; i < enemigos.Count; i++)
                                     {
-                                        Pocion pocion = items[i] as Pocion;
-                                        Console.WriteLine((i + 1) + ". " + pocion.Mostrar());
+                                            Console.WriteLine((i + 1) + ". " + enemigos[i].Mostrar());
                                     }
+
+                                    Console.WriteLine("Escribe el número del enemigo para agregar: ");
+                                    string enemigoIndice = Console.ReadLine();
+                                    enemigos[Int32.Parse(enemigoIndice) - 1].AgregarItem(items[Int32.Parse(indexItem) - 1]);
                                 }
-
-                                string indexItem = Console.ReadLine();
-                                for (int i = 0; i < aldeanos.Count; i++)
-                                {                                
-                                    if(aldeanos[i].tipo == Tipos.Enemigos)
-                                    {
-                                        Enemigo enemigo = aldeanos[i] as Enemigo;
-                                        Console.WriteLine((i + 1) + ". " + enemigo.Mostrar());
-                                    }
+                                else
+                                {
+                                    Console.WriteLine("No hay enemigos");
                                 }
-
-                                string enemigoIndice = Console.ReadLine();
-                                Enemigo enemigoSeleccionado = aldeanos[Int32.Parse(enemigoIndice) - 1] as Enemigo;
-                                enemigoSeleccionado.AgregarItem(items[Int32.Parse(indexItem) - 1]);
-
                                 break;
                             case "3":
+                                if (vendedores.Count != 0)
+                                {
+
+                                    for (int i = 0; i < items.Count; i++)
+                                    {
+                                        if (items[i].tipos == ItemTipos.Arma)
+                                        {
+                                            Arma arma = items[i] as Arma;
+                                            Console.WriteLine((i + 1) + ". " + arma.Mostrar());
+                                        }
+                                        else
+                                        {
+                                            Pocion pocion = items[i] as Pocion;
+                                            Console.WriteLine((i + 1) + ". " + pocion.Mostrar());
+                                        }
+                                    }
+
+                                    Console.WriteLine("Escribe el número del item a agregar: ");
+                                    string indexItem = Console.ReadLine();
+
+                                    for (int i = 0; i < vendedores.Count; i++)
+                                    {
+                                        Console.WriteLine((i + 1) + ". " + vendedores[i].Mostrar());
+                                    }
+                                    Console.WriteLine("Escribe el número del vendedor para agregar: ");
+                                    string vendedorIndice = Console.ReadLine();
+                                    vendedores[Int32.Parse(vendedorIndice) - 1].AgregarItem(items[Int32.Parse(indexItem) - 1]);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("No hay vendedores");
+                                }
+
                                 break;
                         }
                         break;

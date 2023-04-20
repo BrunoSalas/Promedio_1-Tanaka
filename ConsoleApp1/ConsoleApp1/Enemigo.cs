@@ -12,7 +12,7 @@ namespace ConsoleApp1
         int nivel;
         int experiencia;
 
-        List<Item> items;
+        List<Item> items = new List<Item>();
 
         public void AgregarItem(Item item)
         {

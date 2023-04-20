@@ -10,7 +10,16 @@ namespace ConsoleApp1
     {
 
         float dinero;
-        List<Item> items;
+        List<Item> items = new List<Item>();
+
+        public Vendedor(string nombre, int vida, float dinero)
+        {
+
+            this.nombre = nombre;
+            this.vida = vida;
+            this.dinero = dinero;
+            tipo = Tipos.Vendedores;
+        }
         public override void Morir()
         {
             vida = 0;
@@ -18,15 +27,12 @@ namespace ConsoleApp1
 
         public string Mostrar()
         {
-            return $"{nombre},{vida},{dinero},{items}";
+            return $"{nombre},{vida},{dinero}";
         }
-
-        public Vendedor(string nombre, int vida, float dinero) {
         
-            this.nombre= nombre;
-            this.vida= vida;
-            this.dinero= dinero;
-            tipo = Tipos.Vendedores;
+        public void AgregarItem(Item item)
+        {
+            items.Add(item);
         }
     }
 }
