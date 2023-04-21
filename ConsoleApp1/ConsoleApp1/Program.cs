@@ -153,6 +153,7 @@ namespace ConsoleApp1
                         break;
 
                     case "3":
+                        crearArma = false;
                         while (!crearArma)
                         {
                             Console.WriteLine("1.Crear Arma");
