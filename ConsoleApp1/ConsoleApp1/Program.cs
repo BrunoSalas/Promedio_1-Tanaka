@@ -289,6 +289,7 @@ namespace ConsoleApp1
                                 Console.WriteLine((i + 1) + ". " + pocion.Mostrar());
                             }
                         }
+                        Console.WriteLine("--------------");
                         break;
 
                     case "7":
